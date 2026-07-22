@@ -6,7 +6,7 @@ class eCommerceAnaliticsPipeline:
         pass
 
     def main(self):
-        result = CustomersCsvGenerator.generate_test_csv()
+        result = CustomersCsvGenerator.generate_test_csv(100)
         print(result)
 
 
