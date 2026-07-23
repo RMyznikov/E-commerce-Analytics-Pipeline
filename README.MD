@@ -28,5 +28,5 @@ Generation order follows the foreign-key dependencies:
 Run the tests with:
 
 ```powershell
-python -m unittest discover -s tests -v
+python -m pytest
 ```
