@@ -1,7 +1,7 @@
 import random
 from datetime import datetime, timedelta, timezone
 
-from models.csv.customer_csv_row import CustomerCsvRow
+from app.models.csv.customer_csv_row import CustomerCsvRow
 
 
 class CustomersGenerator:

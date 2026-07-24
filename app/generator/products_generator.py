@@ -1,7 +1,7 @@
 import random
 from decimal import Decimal
 
-from models.csv.product_csv_row import ProductCsvRow
+from app.models.csv.product_csv_row import ProductCsvRow
 
 
 class ProductsGenerator:

@@ -1,4 +1,4 @@
-from src.generator.generate_dataset import DatasetConfig, DatasetGenerator
+from app.generator.generate_dataset import DatasetConfig, DatasetGenerator
 
 
 class EcommerceAnalyticsPipeline:

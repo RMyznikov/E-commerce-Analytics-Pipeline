@@ -1,8 +1,8 @@
 import random
 
-from models.csv.order_csv_row import OrderCsvRow
-from models.csv.order_item_csv_row import OrderItemCsvRow
-from models.csv.product_csv_row import ProductCsvRow
+from app.models.csv.order_csv_row import OrderCsvRow
+from app.models.csv.order_item_csv_row import OrderItemCsvRow
+from app.models.csv.product_csv_row import ProductCsvRow
 
 
 class OrderItemsGenerator:

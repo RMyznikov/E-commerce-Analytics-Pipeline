@@ -4,12 +4,12 @@ from dataclasses import dataclass
 from datetime import date
 from pathlib import Path
 
-from src.generator.csv_writer import CsvWriter
-from src.generator.customers_generator import CustomersGenerator
-from src.generator.order_items_generator import OrderItemsGenerator
-from src.generator.orders_generator import OrdersGenerator
-from src.generator.payments_generator import PaymentsGenerator
-from src.generator.products_generator import ProductsGenerator
+from app.generator.csv_writer import CsvWriter
+from app.generator.customers_generator import CustomersGenerator
+from app.generator.order_items_generator import OrderItemsGenerator
+from app.generator.orders_generator import OrdersGenerator
+from app.generator.payments_generator import PaymentsGenerator
+from app.generator.products_generator import ProductsGenerator
 
 
 @dataclass(frozen=True)

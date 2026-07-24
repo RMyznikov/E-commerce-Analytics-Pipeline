@@ -2,10 +2,10 @@ import random
 from datetime import datetime, timedelta
 from decimal import Decimal
 
-from models.csv.order_csv_row import OrderCsvRow
-from models.csv.order_item_csv_row import OrderItemCsvRow
-from models.csv.payment_csv_row import PaymentCsvRow
-from models.csv.product_csv_row import ProductCsvRow
+from app.models.csv.order_csv_row import OrderCsvRow
+from app.models.csv.order_item_csv_row import OrderItemCsvRow
+from app.models.csv.payment_csv_row import PaymentCsvRow
+from app.models.csv.product_csv_row import ProductCsvRow
 
 
 class PaymentsGenerator:

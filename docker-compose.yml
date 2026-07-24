@@ -1,0 +1,10 @@
+services:
+
+  e-commerce-data-generator:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: e-commerce-data-generator:local
+    command: [ "python", "-m", "app.main" ]
+    restart: "no"
+
