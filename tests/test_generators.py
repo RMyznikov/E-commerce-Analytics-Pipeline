@@ -1,6 +1,8 @@
 import csv
+import shutil
 from dataclasses import is_dataclass
 from pathlib import Path
+from uuid import uuid4
 
 import pytest
 
@@ -17,6 +19,21 @@ def read_csv(path: Path) -> list[dict[str, str]]:
         return list(csv.DictReader(csv_file))
 
 
+@pytest.fixture
+def dataset_output_dir(pytestconfig: pytest.Config):
+    test_output_root = Path(pytestconfig.rootpath) / ".test-output"
+    output_dir = test_output_root / uuid4().hex
+    output_dir.mkdir(parents=True)
+
+    yield output_dir
+
+    shutil.rmtree(output_dir, ignore_errors=True)
+    try:
+        test_output_root.rmdir()
+    except OSError:
+        pass
+
+
 def test_models_are_dataclasses() -> None:
     models = (
         CustomerCsvRow,
@@ -29,7 +46,9 @@ def test_models_are_dataclasses() -> None:
     assert all(is_dataclass(model) for model in models)
 
 
-def test_generates_expected_rows_and_valid_foreign_keys(tmp_path: Path) -> None:
+def test_generates_expected_rows_and_valid_foreign_keys(
+    dataset_output_dir: Path,
+) -> None:
     counts = {
         "customers": 7,
         "products": 5,
@@ -37,7 +56,7 @@ def test_generates_expected_rows_and_valid_foreign_keys(tmp_path: Path) -> None:
         "order_items": 30,
     }
     paths = DatasetGenerator(
-        DatasetConfig(**counts, seed=42, output_dir=tmp_path)
+        DatasetConfig(**counts, seed=42, output_dir=dataset_output_dir)
     ).generate()
     rows = {name: read_csv(path) for name, path in paths.items()}
 
